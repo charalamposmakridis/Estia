@@ -23,15 +23,15 @@ class UpdateListingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>['sometimes','required','string','max:255'],
-            'description'=>['sometimes','required','string','min:10'],
-            'country'=>['sometimes','required','string','max:255'],
-            'city'=>['sometimes','required','string','max:255'],
-            'latitude'=>['sometimes','required','numeric','min:-90','max:90'],
-            'longitude'=>['sometimes','required','numeric','min:-180','max:180'],
-            'max_guests'=>['sometimes','required','integer','min:1'],
-            'price_per_night'=>['sometimes','required','numeric','min:0'],
-            'cover_image'=>['sometimes','required','image','mimes:png,jpg,jpeg','max:2048']
+            'title'=>['sometimes','string','max:255'],
+            'description'=>['sometimes','string','min:10'],
+            'country'=>['sometimes','string','max:255'],
+            'city'=>['sometimes','string','max:255'],
+            'latitude'=>['sometimes','numeric','min:-90','max:90'],
+            'longitude'=>['sometimes','numeric','min:-180','max:180'],
+            'max_guests'=>['sometimes','integer','min:1'],
+            'price_per_night'=>['sometimes','numeric','min:0'],
+            'cover_image'=>['sometimes','image','mimes:png,jpg,jpeg','max:2048']
         ];
     }
 }
