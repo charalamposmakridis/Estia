@@ -47,12 +47,10 @@ class ListingController extends Controller
 
         $data = $request->validated();
 
-        // Διαχείριση του cover_image
         if ($request->hasFile('cover_image')) {
             $data['cover_image'] = $request->file('cover_image')->store('listings', 'public');
         }
 
-        // Δημιουργία του listing συνδεδεμένου με τον χρήστη
         $listing = $request->user()->listings()->create($data);
 
         return redirect()->route('listings.show', $listing)->with('success', 'Listing created successfully');
