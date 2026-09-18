@@ -35,9 +35,9 @@ class UpdateBookingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'check_in'=>['sometimes','required','date','after:today'],
-            'check_out'=>['sometimes','required','date','after:check_in'],
-            'status'=>['sometimes','required','in:pending,confirmed,rejected,cancelled']
+            'check_in'=>['sometimes','date','after:today'],
+            'check_out'=>['sometimes','date','after:check_in'],
+            'status'=>['sometimes','in:pending,confirmed,rejected,cancelled']
         ];
     }
 }
